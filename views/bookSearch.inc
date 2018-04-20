@@ -12,7 +12,7 @@
     </p>
     <?php if ($model['books'] !== null): ?>
         <?php if(sizeof($model['books']) > 0) {
-            self::renderView('partial/books', array('books' => $model['books']));
+            self::renderView('partial/books', array('books' => $model['books'], 'cart' => $model['cart'], 'context' => $model['context']));
         } else { ?>
             <p>No matching books found.</p>
         <?php } ?>

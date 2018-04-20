@@ -9,5 +9,5 @@
     });
 
     \Framework\Injector::register(\DataLayer\DataLayer::class, false, \DataLayer\MockDataLayer::class);
-
+    \Framework\Injector::register(\BusinessLogic\Session::class, true);
     \Framework\MVC::handleRequest();

@@ -25,7 +25,7 @@ FORM;
             if(is_array($params)) {
                 foreach($params as $name => $value) {
                     $form = <<<FORM
-<input type="hidden name="$name" value="$value">
+<input type="hidden" name="$name" value="$value">
 FORM;
                     echo($form);
                 }
