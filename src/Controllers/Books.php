@@ -20,4 +20,8 @@
                     $this->dataLayer->getBooksForCategory($this->getParam(self::PARAM_CATEGORY_ID)) : null
             ));
         }
+
+        public function GET_Search() {
+            return $this->renderView('bookSearch', array());
+        }
     }

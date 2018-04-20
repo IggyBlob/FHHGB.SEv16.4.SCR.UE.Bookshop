@@ -23,6 +23,7 @@
                     <ul class="nav navbar-nav">
                         <li><?php self::actionLink('Home', 'Index', 'Home'); ?></li>
                         <li><?php self::actionLink('List', 'Index', 'Books'); ?></li>
+                        <li><?php self::actionLink('Search', 'Search', 'Books'); ?></li>
                     </ul>
                 </div>
             </div>
