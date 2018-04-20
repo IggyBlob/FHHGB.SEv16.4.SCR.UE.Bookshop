@@ -5,7 +5,7 @@
         <?php self::beginActionForm('Search', 'Books', null, 'get', 'form-inline'); ?>
             <div class="form-group">
                 <label for="title">Title</label>
-                <input class="form-control" id="title" name="title">
+                <input class="form-control" id="title" name="title" value="<?php self::htmlOut($model['title']); ?>">
             </div>
             <button class="btn btn-primary">Search</button>
         <?php self::endActionForm(); ?>
