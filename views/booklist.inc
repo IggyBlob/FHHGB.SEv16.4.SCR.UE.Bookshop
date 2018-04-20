@@ -10,5 +10,31 @@
             <?php } ?>
         </ul>
     </p>
+
+    <?php if($model['selectedCategoryId'] != null): ?>
+        <?php if(sizeof($model['books']) > 0) { ?>
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+                <?php foreach($model['books'] as $book): ?>
+                    <tr>
+                        <td><?php echo($book->getTitle()) ?></td>
+                        <td><?php echo($book->getAuthor()) ?></td>
+                        <td><?php echo($book->getPrice()) ?></td>
+                        <td><?php echo("") ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>    
+        <?php } else { ?>
+            <p>No books in this category.</p>
+        <?php } ?>
+    <?php else: ?>
+        <p>Please select a category.</p>
+    <?php endif; ?>
+
 </div>
 <?php self::renderView('partial/footer', $model); ?>
