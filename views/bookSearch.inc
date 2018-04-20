@@ -10,5 +10,12 @@
             <button class="btn btn-primary">Search</button>
         <?php self::endActionForm(); ?>
     </p>
+    <?php if ($model['books'] !== null): ?>
+        <?php if(sizeof($model['books']) > 0) {
+            self::renderView('partial/books', array('books' => $model['books']));
+        } else { ?>
+            <p>No matching books found.</p>
+        <?php } ?>
+    <?php endif; ?>
 </div>
 <?php self::renderView('partial/footer', $model); ?>

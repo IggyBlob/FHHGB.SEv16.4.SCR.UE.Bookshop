@@ -12,24 +12,9 @@
     </p>
 
     <?php if($model['selectedCategoryId'] != null): ?>
-        <?php if(sizeof($model['books']) > 0) { ?>
-            <table class="table">
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Price</th>
-                    <th></th>
-                </tr>
-                <?php foreach($model['books'] as $book): ?>
-                    <tr>
-                        <td><?php self::htmlOut(($book->getTitle())) ?></td>
-                        <td><?php self::htmlOut($book->getAuthor()) ?></td>
-                        <td><?php self::htmlOut($book->getPrice()) ?></td>
-                        <td><?php self::htmlOut("") ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>    
-        <?php } else { ?>
+        <?php if(sizeof($model['books']) > 0) {
+            self::renderView('partial/books', array('books' => $model['books']));
+        } else { ?>
             <p>No books in this category.</p>
         <?php } ?>
     <?php else: ?>

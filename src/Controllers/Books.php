@@ -22,6 +22,9 @@
         }
 
         public function GET_Search() {
-            return $this->renderView('bookSearch', array());
+            return $this->renderView('bookSearch', array(
+                'title' => $this->getParam(self::PARAM_TITLE),
+                'books' => $this->hasParam(self::PARAM_TITLE) ? $this->dataLayer->getBooksForSearchCriteria($this->getParam(self::PARAM_TITLE)) : null
+            ));
         }
     }

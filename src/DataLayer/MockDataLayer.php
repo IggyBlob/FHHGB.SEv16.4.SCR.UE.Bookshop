@@ -44,4 +44,15 @@ class MockDataLayer implements DataLayer {
 		}
 		return $res;
 	}
+
+	public function getBooksForSearchCriteria($title) {
+		$res = array();
+		foreach ($this->__books as $book) {
+			$titleOk = $title == '' || stripos($book->getTitle(), $title) !== false;
+			if($titleOk) {
+				$res[] = $book;
+			}
+		}
+		return $res;
+	}
 }
