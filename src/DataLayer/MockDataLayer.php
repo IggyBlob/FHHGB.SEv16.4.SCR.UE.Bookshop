@@ -14,7 +14,8 @@ class MockDataLayer implements DataLayer {
 		$this->__categories = array(1 => new Category(1, "Mobile & Wireless Computing"),
 			2 => new Category(2, "Functional Programming"),
 			3 => new Category(3, "C / C++"),
-			4 => new Category(4, "<< New Publications >>"));
+			4 => new Category(4, "<< New Publications >>"),
+			5 => new Category(5, "8 Hz WAN IP and other IT Problems"));
 
 		$this->__books = array(1 => new Book(1, 1, "Hello, Android:\nIntroducing Google's Mobile Development Platform", "Ed Burnette", 19.97),
 			2 => new Book(2, 1, "Android Wireless Application Development", "Shane Conder, Lauren Darcey", 31.22),
