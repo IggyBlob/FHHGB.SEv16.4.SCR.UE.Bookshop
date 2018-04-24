@@ -5,6 +5,8 @@
 
 # Bookshop Example Project
 
+![Architecture](architecture.jpg)
+
 Welcome to the PHP example Bookshop project of the summer semester 2018 SCR 
 course at Campus Hagenberg. Please note that the code base is subject to change 
 since the course has not ended yet.
