@@ -21,7 +21,7 @@
                 'books' => $this->hasParam(self::PARAM_CATEGORY_ID) ?
                     $this->dataLayer->getBooksForCategory($this->getParam(self::PARAM_CATEGORY_ID)) : 
                     null, 'cart' => $this->shoppingCart->getAll(),
-                    'context' => ''
+                    'context' => $this->buildActionLink('Index', 'Books', array(self::PARAM_CATEGORY_ID => $this->getParam(self::PARAM_CATEGORY_ID)))
             ));
         }
 
@@ -31,7 +31,7 @@
                 'books' => $this->hasParam(self::PARAM_TITLE) ? 
                     $this->dataLayer->getBooksForSearchCriteria($this->getParam(self::PARAM_TITLE)) : 
                     null, 'cart' => $this->shoppingCart->getAll(),
-                    'context' => ''
+                    'context' => $this->buildActionLink('Search', 'Books', array(self::PARAM_TITLE => $this->getParam(self::PARAM_TITLE)))
             ));
         }
     }

@@ -14,12 +14,12 @@
 
         public function POST_Add() {
             $this->shoppingCart->add($this->getParam(self::PARAM_BOOK_ID));
-            return $this->redirectToUrl($this->getParam(self::PARAM_BOOK_ID));
+            return $this->redirectToUrl($this->getParam(self::PARAM_CONTEXT));
         }
 
         public function POST_Remove() {
             $this->shoppingCart->remove($this->getParam(self::PARAM_BOOK_ID));
-            return $this->redirectToUrl($this->getParam(self::PARAM_BOOK_ID));
+            return $this->redirectToUrl($this->getParam(self::PARAM_CONTEXT));
         }
 
     }

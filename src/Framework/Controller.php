@@ -17,4 +17,8 @@
         public final function redirectToUrl($url) {
             header("Location: $url");
         }
+
+        public final function buildActionLink($action, $controller, $params) {
+            return MVC::buildActionLink($action, $controller, $params);
+        }
     }
