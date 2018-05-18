@@ -24,6 +24,7 @@
                         <li><?php self::actionLink('Home', 'Index', 'Home'); ?></li>
                         <li><?php self::actionLink('List', 'Index', 'Books'); ?></li>
                         <li><?php self::actionLink('Search', 'Search', 'Books'); ?></li>
+                        <li><?php self::actionLink('Checkout', 'Create', 'Order'); ?></li>
                     </ul>
                 </div>
             </div>
