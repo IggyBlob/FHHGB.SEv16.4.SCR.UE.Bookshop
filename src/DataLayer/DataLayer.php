@@ -6,4 +6,6 @@
         public function getBooksForCategory($categoryId);
         public function getBooksForSearchCriteria($title);
         public function createOrder($bookIds, $nameOnCard, $cardNumber);
+        public function getUser($id);
+        public function getUserForUserNameAndPassword($userName, $password);
     }

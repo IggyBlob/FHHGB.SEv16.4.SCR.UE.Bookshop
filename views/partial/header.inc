@@ -26,6 +26,9 @@
                         <li><?php self::actionLink('Search', 'Search', 'Books'); ?></li>
                         <li><?php self::actionLink('Checkout', 'Create', 'Order'); ?></li>
                     </ul>
+                    <div class="navbar-right">
+                        <?php self::renderView('partial/user', $model['user']); ?>
+                    </div>
                 </div>
             </div>
         </nav>

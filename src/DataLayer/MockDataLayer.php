@@ -3,12 +3,12 @@ namespace DataLayer;
 
 use \Domain\Book;
 use \Domain\Category;
-//use \Domain\User;
+use \Domain\User;
 
 class MockDataLayer implements DataLayer {
   private $__categories;
 	private $__books;
-	//private $__users;
+	private $__users;
 
 	public function __construct() {
 		$this->__categories = array(1 => new Category(1, "Mobile & Wireless Computing"),
@@ -28,7 +28,7 @@ class MockDataLayer implements DataLayer {
 			27 => new Book(27, 3, "C++ Primer Plus\n(5th Edition)", "Stephan Prata", 36.94),
 			29 => new Book(29, 3, "The C++ Programming Language", "Bjarne Stroustrup", 67.49));
 
-		//$this->__users = array(1 => new User(1, "scr4"));
+		$this->__users = array(1 => new User(1, "scr4"));
 	}
 
 	public function getCategories() {
@@ -58,5 +58,18 @@ class MockDataLayer implements DataLayer {
 
 	public function createOrder($bookIds, $nameOnCard, $cardNumber) {
 		return rand();
+	}
+
+	public function getUser($id) {
+		return array_key_exists($id, $this->__users) ? $this->__users[$id] : null;
+	}
+
+	public function getUserForUserNameAndPassword($userName, $password) {
+		foreach($this->__users as $user) {
+			if($user->getUserName() == $userName && $userName == $password) {
+				return $user;
+			}
+		}
+		return null;
 	}
 }
