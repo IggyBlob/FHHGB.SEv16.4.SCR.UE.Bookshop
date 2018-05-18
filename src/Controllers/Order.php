@@ -9,19 +9,27 @@
 
         private $dataLayer;
         private $shoppingCart;
+        private $authenticationManager;
 
-        public function __construct(\DataLayer\DataLayer $dataLayer, \BusinessLogic\ShoppingCart $shoppingCart) {
+        public function __construct(\DataLayer\DataLayer $dataLayer, \BusinessLogic\ShoppingCart $shoppingCart, \BusinessLogic\AuthenticationManager $authenticationManager) {
             $this->dataLayer = $dataLayer;
             $this->shoppingCart = $shoppingCart;
+            $this->authenticationManager = $authenticationManager;
         }
 
         public function GET_Create() {
+
+            // TODO: ensure that user is logged in
+
             $cartSize = $this->shoppingCart->size();
             if ($cartSize == 0) {
-                return $this->renderView('orderFormEmptyCart', array());
+                return $this->renderView('orderFormEmptyCart', array(
+                    'user' => $this->authenticationManager->getAuthenticatedUser()
+                ));
             }
 
             return $this->renderView('orderForm', array(
+                'user' => $this->authenticationManager->getAuthenticatedUser(),
                 'cartSize' => $cartSize,
                 'nameOnCard' => $this->getParam(self::PARAM_NAME_ON_CARD), 
                 'cardNumber' => $this->getParam(self::PARAM_CARD_NUMBER)
@@ -29,9 +37,14 @@
         }
 
         public function POST_Create() {
+
+            // TODO: ensure that user is logged in
+
             $cartSize = $this->shoppingCart->size();
             if ($cartSize == 0) {
-                return $this->renderView('orderFormEmptyCart', array());
+                return $this->renderView('orderFormEmptyCart', array(
+                    'user' => $this->authenticationManager->getAuthenticatedUser()
+                ));
             }
 
             $errors = array();
@@ -50,6 +63,7 @@
 
             if (count($errors) > 0) {
                 return $this->renderView('orderForm', array(
+                    'user' => $this->authenticationManager->getAuthenticatedUser(),
                     'cartSize' => $cartSize,
                     'nameOnCard' => $nameOnCard,
                     'cardNumber' => $cardNumber,
@@ -57,9 +71,11 @@
                 ));
             }
 
-            $orderId = $this->dataLayer->createOrder($this->shoppingCart->getAll(), $nameOnCard, $cardNumber);
+            $userId = $this->authenticationManager->getAuthenticatedUser()->getId();
+            $orderId = $this->dataLayer->createOrder($userId, $this->shoppingCart->getAll(), $nameOnCard, $cardNumber);
             if ($orderId === false) {
                 return $this->renderView('orderForm', array(
+                    'user' => $this->authenticationManager->getAuthenticatedUser(),
                     'cartSize' => $cartSize,
                     'nameOnCard' => $nameOnCard,
                     'cardNumber' => $cardNumber,
@@ -75,6 +91,7 @@
 
         public function GET_ShowSummary() {
             return $this->renderView('orderSummary', array(
+                'user' => $this->authenticationManager->getAuthenticatedUser(),
                 'orderId' => $this->getParam(self::PARAM_ORDER_ID)
             ));
         }

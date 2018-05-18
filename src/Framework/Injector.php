@@ -31,7 +31,7 @@
             if ($rCtor != null) {
                 foreach ($rCtor->getParameters() as $rParam) {
                     if (isset(self::$ctorParameters[$serviceName]) && isset(self::$ctorParameters[$serviceName][$rParam->getName()])) {
-                        $actualParams[] = self::$cotrParameters[$serviceName][$rParam->getName()];
+                        $actualParams[] = self::$ctorParameters[$serviceName][$rParam->getName()];
                     }
                     else if ($rParam->isOptional()) {
                         $actualParams[] = $rParam->getDefaultValue();
