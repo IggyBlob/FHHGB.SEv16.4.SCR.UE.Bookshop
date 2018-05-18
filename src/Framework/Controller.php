@@ -13,4 +13,8 @@
         public final function renderView($view, $model = array()) {
             ViewRenderer::renderView($view, $model);
         }
+
+        public final function redirectToUrl($url) {
+            header("Location: $url");
+        }
     }
