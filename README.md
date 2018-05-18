@@ -12,4 +12,4 @@ since the course has not ended yet.
 ![Architecture](architecture.jpg)
 
 **Status:** stable/running<br>
-**Version:** April 20, 2018 (G2)
+**Version:** May 18, 2018 (G2)
