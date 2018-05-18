@@ -13,11 +13,11 @@
             <td><?php self::htmlOut($book->getPrice()) ?></td>
             <td>
                 <?php if($inCart): ?>
-                    <?php self::beginActionForm('Remove', 'Cart', array('bid' => $book->getId(), 'ctx' => $model['context']), 'post'); // action not implemented yet ?>
+                    <?php self::beginActionForm('Remove', 'Cart', array('bid' => $book->getId(), 'ctx' => $model['context']), 'post'); ?>
                         <button class="btn btn-link">Remove from cart</button>
                     <?php self::endActionForm(); ?>
                 <?php else: ?>
-                    <?php self::beginActionForm('Add', 'Cart', array('bid' => $book->getId(), 'ctx' => $model['context']), 'post'); // action not implemented yet ?>
+                    <?php self::beginActionForm('Add', 'Cart', array('bid' => $book->getId(), 'ctx' => $model['context']), 'post'); ?>
                         <button class="btn btn-link">Add to cart</button>
                     <?php self::endActionForm(); ?>
                 <?php endif; ?>
