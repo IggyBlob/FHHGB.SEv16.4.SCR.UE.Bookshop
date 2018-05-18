@@ -18,6 +18,10 @@
             header("Location: $url");
         }
 
+        public final function redirect($action, $controller, $params = null) {
+            $this->redirectToUrl($this->buildActionLink($action, $controller, $params));
+        }
+
         public final function buildActionLink($action, $controller, $params) {
             return MVC::buildActionLink($action, $controller, $params);
         }

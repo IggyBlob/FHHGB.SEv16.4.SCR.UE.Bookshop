@@ -29,3 +29,6 @@
                 </div>
             </div>
         </nav>
+        <?php if(isset($model['errors'])) {
+            self::renderView('partial/errors', $model['errors']);
+        } ?>

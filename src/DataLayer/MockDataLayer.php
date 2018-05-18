@@ -55,4 +55,8 @@ class MockDataLayer implements DataLayer {
 		}
 		return $res;
 	}
+
+	public function createOrder($bookIds, $nameOnCard, $cardNumber) {
+		return rand();
+	}
 }
