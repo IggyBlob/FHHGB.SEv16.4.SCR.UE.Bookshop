@@ -9,7 +9,7 @@
     });
 
     //\Framework\Injector::register(\DataLayer\DataLayer::class, false, \DataLayer\MockDataLayer::class);
-    \FrameWork\Injector::register(\DataLayer\DataLayer::class, false, \DataLayer\DBDataLayer::class, array(
+    \Framework\Injector::register(\DataLayer\DataLayer::class, false, \DataLayer\DBDataLayer::class, array(
         'server' => 'localhost',
         'userName' => 'root',
         'password' => '',
